@@ -1,5 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
+
+@font-face {
+	font-family: head_font;
+	src: url('../static/writing_stuff.ttf');
+}
+
 body {
   padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -21,7 +27,8 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size:28px;
+  font-size:36px;
+  font-family: head_font;
 }
 
 h2 {
@@ -99,6 +106,7 @@ header {
   width:270px;
   float:left;
   position:fixed;
+
 }
 
 header ul {
@@ -253,3 +261,4 @@ footer {
     color:#444;
   }
 }
+
