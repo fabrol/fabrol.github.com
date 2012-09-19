@@ -3,7 +3,7 @@
 
 @font-face {
 	font-family: head_font;
-	src: local('../static/writing_stuff.ttf');
+	src: url('../static/Writing_Stuff.ttf');
 }
 
 body {
