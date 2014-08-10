@@ -90,13 +90,12 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/background.jpg) no-repeat center top;
-	padding-top: 250px;
+	background: url(../img/back1.jpg) no-repeat center top fixed;
 	text-align:center;
-	background-position: center center;
 	width: 100%;
-	height: 100%;
-	
+	min-height: 700px;
+	background-size: 50% 50%;
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -111,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
 #headerwrap h1 {
 	color:#ffffff;
 	padding-top: 10px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	letter-spacing: 4px;
 	font-size: 70px;
 	font-weight: bold;

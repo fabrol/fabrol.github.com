@@ -1,0 +1,37 @@
+.bannerContainer {
+    position:relative;     
+}
+.carousel {
+    position:absolute;
+    top:0;    
+}
+.navbar {
+    position:absolute;
+    top:10px;
+    z-index:10;
+    width:100%;
+}
+
+
+.navbar-brand {
+	font-weight: 700;
+}
+
+.navbar-default .navbar-brand {
+	color: #ffffff;
+}
+
+.navbar-default {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #b3b3b3;
+	background-color: transparent;
+	border-bottom: 2px solid #b3b3b3	
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #b3b3b3;
+}

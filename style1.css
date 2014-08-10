@@ -1,0 +1,13 @@
+.bannerContainer {
+    position:relative;     
+}
+.carousel {
+    position:absolute;
+    top:0;    
+}
+.navbar {
+    position:absolute;
+    z-index:10;
+    background:#fff;
+    width:100%;
+}
