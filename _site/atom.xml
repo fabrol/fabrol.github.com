@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+    <title type="text" xml:lang="en">Farhan Abrol</title>
+    <link type="application/atom+xml" rel="self" href="http://www.farhanabrol.com//atom.xml"/>
+  
+  <link href="http://www.farhanabrol.com//"/>
+  <id>http://www.farhanabrol.com//</id>
+  <updated>2015-12-29T11:07:48Z</updated>
+  <author>
+    <name>Farhan Abrol</name>
+    <email>fabrol92@gmail.com</email>
+  </author>
+  <rights type="text">Copyright © 2015 Farhan Abrol. All rights reserved.</rights>
+  
+  <entry>
+  <title type="text">Hello World</title>
+  <link rel="alternate" type="text/html" href="http://www.farhanabrol.com//post1.html" />
+  <id>http://www.farhanabrol.com//post1</id>
+  <published>2015-12-29T00:00:00Z</published>
+  <updated>2015-12-29T00:00:00Z</updated>
+  <content type="html"><![CDATA[ 
+ ]]></content>
+</entry>
+
+
+
+</feed>

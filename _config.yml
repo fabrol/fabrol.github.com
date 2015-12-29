@@ -1,0 +1,30 @@
+# top level stuff you probably don't need to touch
+highlighter: pygments
+markdown: rdiscount
+rdiscount:
+  extensions: [smart]
+permalink: /:title.html
+paginate: 5
+gems: [jekyll-paginate]
+port: 3000
+safe: true
+
+
+# edit here to achieve your personal greatness
+url: http://www.farhanabrol.com/
+baseurl: ""
+title: Farhan Abrol
+author: Farhan Abrol
+description: My online prescence
+avatar: avatar.png
+email: fabrol92@gmail.com
+github: fabrol
+twitter: F_Abrol
+resume: "https://docs.google.com/document/d/1zxCEOLttLBZcDWIiEJ0zs4CCFIFDlg3OOOdoYuKhaAE/edit?usp=sharing"
+linkedin: farhan-abrol-44a22b16
+#Comment out if you don't want disqus
+disqus: fabrol
+google_analytics: UA-71828543-1
+
+# needed for travis-ci build
+exclude: [vendor]
