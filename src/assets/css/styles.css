@@ -1,0 +1,170 @@
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --text-primary: #2D3748;
+  --text-secondary: #4A5568;
+  --background: #FFFFFF;
+  --accent: #805AD5;
+  --max-width: 1200px;
+  --content-width: 70ch;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background);
+  line-height: 1.7;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* Navigation */
+nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.intro h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Content Sections */
+.about-me, .explorations, .interests, .passions {
+  max-width: var(--content-width);
+  margin: 0;
+  padding: 0;
+}
+
+.about-me {
+  margin-top: 1rem;
+}
+
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+/* Link Styling */
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* External Link Arrow */
+a[href^="http"]:not(.social-links a):after {
+  content: '↗';
+  font-size: 0.9em;
+}
+
+/* Navigation Links - No Arrow */
+nav a:after {
+  display: none !important;
+}
+
+/* Social Links - No Arrow */
+.social-links a:after {
+  display: none !important;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  max-width: var(--max-width);
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card a {
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+  max-width: var(--max-width);
+  margin: 4rem auto;
+  padding: 0 4rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  main, nav, footer {
+    padding: 1rem 2rem;
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
