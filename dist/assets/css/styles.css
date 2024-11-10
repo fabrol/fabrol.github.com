@@ -101,7 +101,7 @@ a {
 }
 
 /* External Link Arrow */
-a[href^="http"]:not(.social-links a):after {
+a[href^="http"]:not([class*="social-links"]):after {
   content: '↗';
   font-size: 0.9em;
 }
@@ -152,6 +152,23 @@ footer {
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
+
+footer p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  footer img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  
+  footer a {
+    display: inline-flex;
+    align-items: center;
+  }
 
 @media (max-width: 768px) {
   main, nav, footer {
