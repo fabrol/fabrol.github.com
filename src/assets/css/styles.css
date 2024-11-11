@@ -37,6 +37,21 @@ main {
   padding: 0 4rem;
 }
 
+.custom-list {
+    list-style: none;
+    padding-left: 1.5rem;
+  }
+  
+  .custom-list li {
+    position: relative;
+  }
+  
+  .custom-list li::before {
+    content: "~";  /* or use "→" or "▹" for different bullet styles */
+    position: absolute;
+    left: -1.5rem;
+  }
+
 /* Navigation */
 nav {
   max-width: var(--max-width);
@@ -76,7 +91,6 @@ h2 {
 }
 
 p {
-  margin-bottom: 1.5rem;
   color: var(--text-secondary);
 }
 
@@ -173,6 +187,7 @@ footer p {
   }
 }
 
+/* Thoughts main */
 .thoughts {
   max-width: var(--content-width);
   margin: 0;
@@ -243,6 +258,7 @@ footer p {
   color: white;
 }
 
+/* Thought single */
 .thought-single {
   max-width: var(--content-width);
   margin: 0;
