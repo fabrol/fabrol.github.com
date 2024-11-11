@@ -195,12 +195,34 @@ footer p {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .thought-date {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  margin: 0.5rem 0 1.5rem;
+}
+
+.thought-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.thought-preview {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.thought-preview:hover,
+.thought-title:hover {
+  color: var(--accent);
 }
 
 .thought-content {
@@ -226,4 +248,20 @@ footer p {
 .thought-actions button:hover {
   background: var(--accent);
   color: white;
+}
+
+.thought-single {
+  max-width: var(--content-width);
+  margin: 2rem auto;
+}
+
+.thought-single h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.thought-single .thought-content {
+  margin-top: 2rem;
 }

@@ -1,7 +1,11 @@
 /// <reference lib="deno.window" />
 // build.ts
 import { ensureDir, copy } from "https://deno.land/std@0.125.0/fs/mod.ts";
-import { generateThoughtsHtml } from "./thoughts.ts";
+import {
+  generateThoughtsHtml,
+  generateThoughtPage,
+  getAllThoughts,
+} from "./thoughts.ts";
 
 async function loadComponent(filePath: string): Promise<string> {
   return await Deno.readTextFile(filePath);
@@ -74,6 +78,22 @@ async function main() {
   const nav = await loadComponent("src/components/nav.html");
   const footer = await loadComponent("src/components/footer.html");
   const head = await loadComponent("src/components/head.html");
+
+  // Build individual thought pages
+  const thoughts = await getAllThoughts();
+  await ensureDir("dist/thoughts");
+
+  for (const thought of thoughts) {
+    const thoughtContent = await generateThoughtPage(thought);
+    await buildPage(
+      { content: thoughtContent },
+      `dist/thoughts/${thought.slug}.html`,
+      nav,
+      footer,
+      head,
+      `${thought.title} - Farhan Abrol`
+    );
+  }
 
   // Build each page, specifying the title for each
   await buildPage(
