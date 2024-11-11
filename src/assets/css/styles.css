@@ -4,8 +4,8 @@
 :root {
   --text-primary: #2D3748;
   --text-secondary: #4A5568;
-  --background: #FFFFFF;
-  --accent: #805AD5;
+  --background: #fbf7e8;
+  --accent: #DADADA;
   --max-width: 1200px;
   --content-width: 70ch;
 }
@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Fraunces', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-primary);
   background-color: var(--background);
   line-height: 1.7;
@@ -35,7 +35,7 @@ main {
 nav {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem 4rem;
+  padding: 1rem 4rem 2rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,10 +74,6 @@ nav a {
   max-width: var(--content-width);
   margin: 0;
   padding: 0;
-}
-
-.about-me {
-  margin-top: 1rem;
 }
 
 h2 {
@@ -270,4 +266,10 @@ footer p {
 
 .thought-single .thought-content {
   margin-top: 2rem;
+}
+
+nav a.active {
+  font-weight: 500;
+  border-bottom: 1px solid var(--accent);
+
 }

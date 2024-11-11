@@ -39,12 +39,13 @@ async function buildPage(
     console.log("Page content:", pageContent);
   }
 
-  const page = layout
-    .replace("{{ title }}", title)
+  let page = layout
     .replace("{{ nav }}", nav)
     .replace("{{ footer }}", footer)
     .replace("{{ head }}", head)
     .replace("{{ content }}", pageContent);
+
+  page = page.replace("{{ title }}", title);
 
   if (DEBUG) {
     console.log("Final page content:", page);
