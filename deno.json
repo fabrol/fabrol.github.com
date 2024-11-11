@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "new-thought": "deno run --allow-write scripts/new-thought.ts",
+    "new-thought": "deno run --allow-write scripts/new-thoughts.ts",
     "dev": "deno run --allow-read --allow-write --allow-run scripts/watch.ts & deno run --allow-net --allow-read https://deno.land/std@0.125.0/http/file_server.ts dist",
     "start": "deno run --allow-net --allow-read https://deno.land/std@0.125.0/http/file_server.ts dist"
   },
