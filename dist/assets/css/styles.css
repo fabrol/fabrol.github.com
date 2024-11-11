@@ -7,7 +7,7 @@
   --background: #fbf7e8;
   --accent: #DADADA;
   --max-width: 1200px;
-  --content-width: 65ch;
+  --content-width: 66ch;
 }
 
 * {
@@ -38,18 +38,11 @@ main {
 }
 
 .custom-list {
-    list-style: none;
     padding-left: 1.5rem;
   }
   
   .custom-list li {
     position: relative;
-  }
-  
-  .custom-list li::before {
-    content: "~";  /* or use "→" or "▹" for different bullet styles */
-    position: absolute;
-    left: -1.5rem;
   }
 
 /* Navigation */
@@ -312,11 +305,4 @@ nav a.active {
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-}
-.tooltip:after{
-  content: '↑';
-  font-size: 0.9em;
-  text-decoration: none;
-  display: inline;
-  margin-left: -0.1em;
 }
