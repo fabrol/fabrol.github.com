@@ -7,6 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Home - Farhan Abrol</title>
 <link rel="stylesheet" href="../assets/css/styles.css" />
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname;
@@ -20,6 +23,15 @@
       ) {
         link.classList.add("active");
       }
+    });
+
+    // Initialize tooltips
+    tippy("[data-tippy-content]", {
+      theme: "light",
+      animation: "fade",
+      allowHTML: true,
+      interactive: true,
+      placement: "top-end",
     });
   });
 </script>
@@ -44,23 +56,29 @@
     I like building products that improve access to essential services.
   </p>
   <p>
-    These days, I'm spending time at
+    I'm exploring products to help improve access to essential services at
       <a
         href="https://buildexante.substack.com/p/agentic-tech-to-counter-digital-authoritarianism"
         >Ex/Ante</a
       > and <a href="https://southparkcommons.org/">South Park Commons</a>.
   </p>
-  <p>In the past, I've worked on</p>
-    <p>getting
+  <p>In the past, I've helped </p>
+    <p>
     <a
       href="https://about.fb.com/news/2021/03/mark-zuckerberg-announces-facebooks-plans-to-help-get-people-vaccinated-against-covid-19/"
       >50M people get vaccinated</a>,</p>
-      <p>improving civic discourse</p>
+      <p>build a </p>
   <ul class="custom-list">
     <li>
       Originally from Delhi, living between SF and NYC for the past 10 years.
     </li>
-    <li>Started at UNICEF in Madagascar on remote sensing projects.</li>
+    <li>
+        Started at
+      <span class="tooltip" data-tippy-content="Built data collection and visualization tools to help track vaccination rates and health service delivery in remote areas of Madagascar. <a href='https://www.unicef.org/madagascar/en/what-we-do/health'>Read more ↗</a>">
+        UNICEF in Madagascar
+      </span>
+      building data tools for remote health services
+    </li>
     <li>
       Spent years at Pure Storage, from early days through IPO, focused on
       privacy-first distributed systems and ML/AI control plane products.

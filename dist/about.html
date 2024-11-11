@@ -7,6 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About - Farhan Abrol</title>
 <link rel="stylesheet" href="../assets/css/styles.css" />
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname;
@@ -20,6 +23,15 @@
       ) {
         link.classList.add("active");
       }
+    });
+
+    // Initialize tooltips
+    tippy("[data-tippy-content]", {
+      theme: "light",
+      animation: "fade",
+      allowHTML: true,
+      interactive: true,
+      placement: "top-end",
     });
   });
 </script>
