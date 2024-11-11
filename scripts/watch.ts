@@ -1,13 +1,11 @@
 // watch.ts
 import { debounce } from "https://deno.land/std@0.125.0/async/debounce.ts";
 
-const watcher = Deno.watchFs("src"); // Watch the `src` folder
-const debounceDuration = 300; // Delay between rebuilds (ms)
-
+// Move rebuild function to top level for initial build
 async function rebuild() {
   console.log("Rebuilding site...");
   const process = Deno.run({
-    cmd: ["deno", "run", "--allow-read", "--allow-write", "build.ts"],
+    cmd: ["deno", "run", "--allow-read", "--allow-write", "scripts/build.ts"],
     stdout: "inherit",
     stderr: "inherit",
   });
@@ -21,6 +19,13 @@ async function rebuild() {
   }
   console.log("Rebuild complete.");
 }
+
+// Run initial build
+console.log("Running initial build...");
+await rebuild();
+
+const watcher = Deno.watchFs("src");
+const debounceDuration = 300;
 
 // Debounced rebuild function to prevent excessive triggering
 const debouncedRebuild = debounce(rebuild, debounceDuration);

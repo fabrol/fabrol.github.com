@@ -1,6 +1,7 @@
 /// <reference lib="deno.window" />
 // build.ts
 import { ensureDir, copy } from "https://deno.land/std@0.125.0/fs/mod.ts";
+import { generateThoughtsHtml } from "./thoughts.ts";
 
 async function loadComponent(filePath: string): Promise<string> {
   return await Deno.readTextFile(filePath);
@@ -9,7 +10,7 @@ async function loadComponent(filePath: string): Promise<string> {
 const DEBUG = Deno.args.includes("--debug");
 
 async function buildPage(
-  pageContentPath: string,
+  pageContentPath: string | { content: string },
   outputFilePath: string,
   nav: string,
   footer: string,
@@ -22,7 +23,12 @@ async function buildPage(
   }
 
   const layout = await loadComponent("src/templates/layout.html");
-  const pageContent = await loadComponent(pageContentPath);
+
+  // Handle either raw content or file path
+  const pageContent =
+    typeof pageContentPath === "string"
+      ? await loadComponent(pageContentPath)
+      : pageContentPath.content;
 
   if (DEBUG) {
     console.log("Layout template:", layout);
@@ -87,6 +93,15 @@ async function main() {
     "About - Farhan Abrol"
   );
 
+  const thoughtsContent = await generateThoughtsHtml();
+  await buildPage(
+    { content: thoughtsContent },
+    "dist/thoughts.html",
+    nav,
+    footer,
+    head,
+    "Thoughts - Farhan Abrol"
+  );
   // Copy CSS and images
   await copyAssets();
 }
