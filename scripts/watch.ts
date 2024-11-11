@@ -24,20 +24,32 @@ async function rebuild() {
 console.log("Running initial build...");
 await rebuild();
 
-const watcher = Deno.watchFs("src");
+// Watch multiple directories
+const watchers = [Deno.watchFs("src"), Deno.watchFs("scripts")];
 const debounceDuration = 300;
 
 // Debounced rebuild function to prevent excessive triggering
 const debouncedRebuild = debounce(rebuild, debounceDuration);
 
 // Watch for file changes and trigger rebuild
-console.log("Watching for changes in the 'src' directory...");
-for await (const event of watcher) {
-  if (
-    event.kind === "modify" ||
-    event.kind === "create" ||
-    event.kind === "remove"
-  ) {
-    await debouncedRebuild();
+console.log("Watching for changes in the 'src' and 'scripts' directories...");
+
+// Create an async function to handle each watcher
+async function watchDirectory(watcher: Deno.FsWatcher) {
+  try {
+    for await (const events of watcher) {
+      if (
+        events.kind === "modify" ||
+        events.kind === "create" ||
+        events.kind === "remove"
+      ) {
+        await debouncedRebuild();
+      }
+    }
+  } catch (error) {
+    console.error("Watch error:", error);
   }
 }
+
+// Start all watchers concurrently
+await Promise.all(watchers.map((watcher) => watchDirectory(watcher)));
