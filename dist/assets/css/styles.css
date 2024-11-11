@@ -49,7 +49,7 @@ main {
 nav {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1rem 4rem 2rem 4rem;
+  padding: 1rem 4rem 1rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -109,39 +109,38 @@ footer {
   padding: 0 4rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
+  display: flex;
+  justify-content: left;
+  gap: 0.5rem;
 }
 
-footer p {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+footer img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
   
-  footer img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-  }
-  
-  footer a {
-    display: inline-flex;
-    align-items: center;
-  }
+footer a {
+  display: inline-flex;
+  align-items: center;
+}
 
 @media (max-width: 768px) {
   main, footer {
-    padding: 1rem 2rem;
+    padding: 0rem 1.5rem;
   }
   
   nav {
-    flex-direction: column;
-    padding: 1rem 0.5rem;
+    padding: 1rem 1.5rem;
+    justify-content: flex-start;
   }
   
   nav ul {
     flex-wrap: nowrap;
-    justify-content: space-around;
-    gap: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
   }
 }
 
