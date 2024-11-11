@@ -48,10 +48,12 @@ function thoughtToHtml(thought: Thought): string {
 
   return `
     <div class="thought-entry">
-      <div class="thought-date">${thought.date.toLocaleDateString()}</div>
-      <a href="/thoughts/${thought.slug}.html" class="thought-title">${
+      <div class="thought-header">
+        <a href="/thoughts/${thought.slug}.html" class="thought-title">${
     thought.title
-  } ↗</a>
+  }</a>
+        <span class="thought-date">${thought.date.toLocaleDateString()}</span>
+      </div>
       <a href="/thoughts/${
         thought.slug
       }.html" class="thought-preview">${preview}</a>

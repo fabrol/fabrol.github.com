@@ -188,43 +188,49 @@ footer p {
 
 .thoughts {
   max-width: var(--content-width);
-  margin: 2rem auto;
+  margin: 0;
 }
 
 .thought-entry {
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  padding-bottom: 0rem;
+  margin-bottom: 0rem;
 }
 
 .thought-date {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  margin-left: 1rem;
+  flex-shrink: 0;
 }
 
 .thought-title {
   font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-primary);
-  text-decoration: none;
 }
 
 .thought-preview {
+  margin-top: 0rem;  
+  margin-bottom: 0rem;  
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.9em;
 }
 
 .thought-preview:hover,
 .thought-title:hover {
-  color: var(--accent);
+  text-decoration: none;
 }
 
+.thought-title:after {
+  content: '↗';
+  font-size: 0.9em;
+}
+
+.thought-entry:hover .thought-title,
+.thought-entry:hover .thought-preview {
+  text-decoration: underline;
+}
 .thought-content {
   white-space: pre-wrap;
   margin-bottom: 1.5rem;
@@ -252,7 +258,7 @@ footer p {
 
 .thought-single {
   max-width: var(--content-width);
-  margin: 2rem auto;
+  margin: 0;
 }
 
 .thought-single h1 {

@@ -1,8 +1,8 @@
 ---
-title: untitled-thought
+title: Welcome to my garden
 date: '2024-11-11'
 draft: false
-slug: untitled-thought
+slug: welcome-to-my-garden
 socialLinks: {}
 ---
 
