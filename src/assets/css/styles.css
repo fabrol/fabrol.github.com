@@ -69,18 +69,10 @@ nav a {
 }
 
 /* Content Sections */
-.about-me, .explorations, .interests, .passions {
+.home-page, .about-me, .explorations, .interests, .passions {
   max-width: var(--content-width);
   margin: 0;
   padding: 0;
-}
-
-h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
 }
 
 p {
@@ -110,34 +102,6 @@ nav a:after {
   display: none !important;
 }
 
-/* Cards */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
-  max-width: var(--max-width);
-}
-
-.card {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.card a {
-  font-weight: 500;
-  display: inline-block;
-  margin-top: 1rem;
-}
-
 /* Footer */
 footer {
   max-width: var(--max-width);
@@ -165,18 +129,19 @@ footer p {
   }
 
 @media (max-width: 768px) {
-  main, nav, footer {
-    padding: 1rem 1rem;
+  main, footer {
+    padding: 1rem 2rem;
   }
   
   nav {
     flex-direction: column;
-    gap: 1rem;
+    padding: 1rem 0.5rem;
   }
   
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    gap: 1rem;
   }
 }
 
@@ -188,7 +153,7 @@ footer p {
 
 .thought-entry {
   padding-bottom: 0rem;
-  margin-bottom: 0rem;
+  margin-bottom: 1rem;
 }
 
 .thought-date {
@@ -196,6 +161,12 @@ footer p {
   font-size: 0.7rem;
   margin-left: 1rem;
   flex-shrink: 0;
+}
+
+.thought-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .thought-title {
@@ -215,11 +186,6 @@ footer p {
 .thought-preview:hover,
 .thought-title:hover {
   text-decoration: none;
-}
-
-.thought-title:after {
-  content: '↗';
-  font-size: 0.9em;
 }
 
 .thought-entry:hover .thought-title,

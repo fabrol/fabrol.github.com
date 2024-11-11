@@ -113,6 +113,14 @@ async function main() {
     head,
     "About - Farhan Abrol"
   );
+  await buildPage(
+    "src/content/now.html",
+    "dist/now.html",
+    nav,
+    footer,
+    head,
+    "Now - Farhan Abrol"
+  );
 
   const thoughtsContent = await generateThoughtsHtml();
   await buildPage(
@@ -123,6 +131,7 @@ async function main() {
     head,
     "Thoughts - Farhan Abrol"
   );
+
   // Copy CSS and images
   await copyAssets();
 }
