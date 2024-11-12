@@ -134,6 +134,15 @@ async function main() {
 
   // Copy CSS and images
   await copyAssets();
+
+  await buildPage(
+    "src/content/projects.html",
+    "dist/projects.html",
+    nav,
+    footer,
+    head,
+    "Projects - Farhan Abrol"
+  );
 }
 
 main();
