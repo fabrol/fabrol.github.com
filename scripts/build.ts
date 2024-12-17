@@ -58,11 +58,13 @@ async function buildPage(
 }
 
 async function copyAssets() {
+  // Copy CSS
   await ensureDir("dist/assets/css");
   await copy("src/assets/css/styles.css", "dist/assets/css/styles.css", {
     overwrite: true,
   });
 
+  // Copy images
   await ensureDir("dist/assets/images");
   for await (const file of Deno.readDir("src/assets/images")) {
     if (file.isFile) {
@@ -73,6 +75,9 @@ async function copyAssets() {
       );
     }
   }
+
+  // Create CNAME file
+  await Deno.writeTextFile("dist/CNAME", "www.farhanabrol.com");
 }
 
 async function main() {
