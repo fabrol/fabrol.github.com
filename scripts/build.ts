@@ -77,7 +77,7 @@ async function copyAssets() {
   }
 
   // Create CNAME file
-  await Deno.writeTextFile("dist/CNAME", "www.farhanabrol.com");
+  await Deno.writeTextFile("dist/CNAME", "farhanabrol.com");
 }
 
 async function main() {
