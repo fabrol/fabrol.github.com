@@ -1,9 +1,9 @@
 ---
-title: untitled-thought
+title: Hello world
 date: '2024-12-17'
 draft: false
-slug: untitled-thought-1
+slug: hello-world
 socialLinks: {}
 ---
 
-Enter your thought here.
+Hello world!
