@@ -8,6 +8,8 @@
   --accent: #E5E5E5;
   --max-width: 1200px;
   --content-width: 72ch;
+  --min-width: 600px;
+  --container-width: 800px;
 }
 
 * {
@@ -39,10 +41,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  max-width: var(--max-width);
+.container {
+  width: var(--container-width);
+  margin: 0 auto;
   padding: 0 4rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
   flex: 1;
+  padding: 0;
+}
+
+footer {
+  padding: 2rem 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
 }
 
 .custom-list {
@@ -54,14 +81,6 @@ main {
   }
 
 /* Navigation */
-nav {
-  max-width: var(--max-width);
-  padding: 1rem 4rem 1rem 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 nav ul {
   display: flex;
   gap: 2rem;
@@ -76,7 +95,7 @@ nav a {
 }
 
 /* Content Sections */
-.home-page, .about-me, .explorations, .interests, .passions {
+.home-page, .about-me, .explorations, .interests, .passions, .thoughts, .thought-single {
   max-width: var(--content-width);
   margin: 0;
   padding: 0;
@@ -109,21 +128,6 @@ nav a:after {
   display: none !important;
 }
 
-/* Footer */
-footer {
-  bottom: 0;
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 2rem 0;
-  padding: 0 4rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  display: flex;
-  justify-content: left;
-  gap: 0.5rem;
-  font-size: 0.9em;
-}
-
 footer img {
   width: 15px;
   height: 15px;
@@ -136,12 +140,13 @@ footer a {
 }
 
 @media (max-width: 768px) {
-  main, footer {
-    padding: 0rem 1.5rem;
+  .container {
+    min-width: 100%;
+    padding: 0 1.5rem;
   }
   
   nav {
-    padding: 1rem 1.5rem;
+    padding: 1rem 0;
     justify-content: flex-start;
   }
   
@@ -357,3 +362,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
+
+@media (max-width: 832px) {
+  .container {
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+}
