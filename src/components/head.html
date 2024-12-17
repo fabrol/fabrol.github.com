@@ -14,6 +14,7 @@
     navLinks.forEach((link) => {
       if (
         link.getAttribute("href") === currentPath ||
+        (currentPath === "/" && link.getAttribute("href") === "/index.html") ||
         (currentPath.includes("/thoughts/") &&
           link.getAttribute("href") === "/thoughts.html")
       ) {
