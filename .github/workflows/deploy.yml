@@ -1,7 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:  # Manual trigger only
+  push:
+    branches:
+      - master
+  workflow_dispatch:  # Keep manual trigger option
 
 permissions:
   contents: read
@@ -32,4 +35,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2 
+        uses: actions/deploy-pages@v2
