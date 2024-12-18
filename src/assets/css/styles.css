@@ -74,10 +74,12 @@ footer {
 
 .custom-list {
     padding-left: 1.5rem;
+    padding-top: 1rem;
   }
   
   .custom-list li {
     position: relative;
+    padding-bottom: 1rem;
   }
 
 /* Navigation */
@@ -96,7 +98,7 @@ nav a {
 
 /* Content Sections */
 .home-page, .about-me, .explorations, .interests, .passions, .thoughts, .thought-single {
-  max-width: var(--content-width);
+  max-width: 600px;
   margin: 0;
   padding: 0;
 }
@@ -477,4 +479,9 @@ h3 { font-size: 1.5rem; }
 
 .project-single h3 {
   margin-top: 1rem;
+}
+
+/* Keep at end of file */
+.text-page-top {
+  padding-top: 5rem;
 }
