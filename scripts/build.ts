@@ -6,6 +6,7 @@ import {
   generateThoughtPage,
   getAllThoughts,
 } from "./thoughts.ts";
+import { type Project, projects } from "../src/data/projects.ts";
 
 async function loadComponent(filePath: string): Promise<string> {
   return await Deno.readTextFile(filePath);
@@ -80,6 +81,63 @@ async function copyAssets() {
   await Deno.writeTextFile("dist/CNAME", "farhanabrol.com");
 }
 
+function generateProjectCard(project: Project): string {
+  return `
+    <div class="project-card" onclick="window.location='/projects/${
+      project.slug
+    }.html'">
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+      <div class="project-meta">
+        ${project.technologies
+          ?.map((tech) => `<span class="tech-tag">${tech}</span>`)
+          .join("")}
+      </div>
+      <div class="project-links">
+        ${
+          project.url
+            ? `<a href="${project.url}" onclick="event.stopPropagation()" target="_blank">View Project</a>`
+            : ""
+        }
+        ${
+          project.github
+            ? `<a href="${project.github}" onclick="event.stopPropagation()" target="_blank">Source Code</a>`
+            : ""
+        }
+      </div>
+    </div>
+  `;
+}
+
+async function buildProjects(nav: string, footer: string, head: string) {
+  // Build projects list page
+  const projectsHtml = projects.map(generateProjectCard).join("\n");
+
+  // Ensure projects directory exists
+  await ensureDir("dist/projects");
+
+  // Build individual project pages
+  for (const project of projects) {
+    try {
+      const projectContent = await loadComponent(
+        `src/content/projects/${project.slug}.html`
+      );
+      await buildPage(
+        { content: projectContent },
+        `dist/projects/${project.slug}.html`,
+        nav,
+        footer,
+        head,
+        `${project.title} - Projects - Farhan Abrol`
+      );
+    } catch (e) {
+      console.warn(`No custom page found for project: ${project.slug}`);
+    }
+  }
+
+  return projectsHtml;
+}
+
 async function main() {
   const nav = await loadComponent("src/components/nav.html");
   const footer = await loadComponent("src/components/footer.html");
@@ -140,8 +198,9 @@ async function main() {
   // Copy CSS and images
   await copyAssets();
 
+  const projectsContent = await buildProjects(nav, footer, head);
   await buildPage(
-    "src/content/projects.html",
+    { content: projectsContent },
     "dist/projects.html",
     nav,
     footer,
