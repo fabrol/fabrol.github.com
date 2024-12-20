@@ -6,7 +6,18 @@
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-NS7BNGL873"
+></script>
 <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-NS7BNGL873");
+
   document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll("nav a");
