@@ -4,7 +4,7 @@ date: '2024-11-05'
 draft: false
 slug: to-done-lists
 projectSlug: to-done-lists
-tags: ['projects']
+tags: ['crafts']
 socialLinks: {}
 ---
 

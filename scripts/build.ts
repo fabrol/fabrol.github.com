@@ -175,7 +175,8 @@ async function buildProjects(nav: string, footer: string, head: string) {
         nav,
         footer,
         head,
-        `${project.title} - Projects - Farhan Abrol`
+        `${project.title} - Crafts - Farhan Abrol`,
+        false
       );
     } catch (e) {
       console.warn(`No custom page found for project: ${project.slug}`);
@@ -255,7 +256,8 @@ async function main() {
     nav,
     footer,
     head,
-    "Projects - Farhan Abrol"
+    "Crafts - Farhan Abrol",
+    false
   );
 }
 

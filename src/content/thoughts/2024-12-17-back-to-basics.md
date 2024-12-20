@@ -4,7 +4,7 @@ date: '2024-12-17'
 draft: false
 slug: back-to-basics
 projectSlug: personal-website
-tags: ['projects']
+tags: ['crafts']
 socialLinks: {}
 ---
 *"What I cannot create, I do not understand."* — Richard P. Feynman

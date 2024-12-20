@@ -428,7 +428,7 @@ h3 { font-size: 1.5rem; }
   }
 }
 
-/* Projects *//* Projects */
+/* Crafts */
 .projects-grid {
   display: flex;
   flex-direction: column;
@@ -512,11 +512,6 @@ h3 { font-size: 1.5rem; }
   transition: all 0.2s ease;
 }
 
-.project-single h1 {
-  font-size: 2rem;
-  color: var(--text-primary);
-}
-
 .project-links {
   display: flex;
   gap: 1rem;
@@ -525,6 +520,7 @@ h3 { font-size: 1.5rem; }
 .project-single .project-content {
   color: var(--text-secondary);
   font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 
 .project-single ul {
@@ -533,10 +529,6 @@ h3 { font-size: 1.5rem; }
   margin-bottom: 1rem;
 }
 
-
-.project-single h3 {
-  margin-top: 1rem;
-}
 
 /* Keep at end of file */
 .text-page-top {
