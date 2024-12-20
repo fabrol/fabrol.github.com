@@ -19,6 +19,7 @@ export const projects: Project[] = [
     github: "https://github.com/fabrol/fabrol.github.io",
     technologies: ["TypeScript", "Deno", "HTML", "CSS"],
     featured: true,
+    preview: "/assets/images/personal-site-gif.gif",
   },
   {
     title: "tomatotimer.lol",
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     github: "https://github.com/fabrol/pomodoro_app",
     technologies: ["React", "TypeScript", "Framer Motion"],
     featured: true,
+    preview: "/assets/images/tomatotimer_gif.gif",
   },
   {
     title: "To Done Lists",

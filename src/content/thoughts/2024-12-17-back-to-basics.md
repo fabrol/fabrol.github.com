@@ -10,25 +10,13 @@ socialLinks: {}
 
 In an age of AI-generated code and bloated web frameworks, I took inspiration from [digital gardens](https://maggieappleton.com/garden-history) and chose to do it the old fashioned way. Rather than reaching for the usual frameworks or libraries, I’m hand rolling it from the ground up.
 
-Is it novel? Nope.
+Is it novel? *No.*
 
-Is it theraputic? Yes
+Is it theraputic? *Yes.*
 
-A kind of catharsis for those of us who cut our teeth in the pre-AI, hand-crafted web era. To resist the capitalist-work-urge to only do something if its "novel" or "improves something". The point is to have fun.
-My goal was to create a site that’s:
-- **Minimalist and lightweight**: Fast-loading and free of unnecessary cruft.
-- **Fully controlled and understood**: Every line of code is mine.
-- **Modern tools, classic principles**: Think fresh ingredients, no prepackaged meals.
-- **Easy to maintain and extend**: Future-proofing without overhead.
+A kind of catharsis for those of us who cut our teeth in the pre-AI, hand-crafted web era. To resist the capitalist-work-urge to only do something if its "novel" or "improves something".
 
-
-### The Journey
-
-The project started simply: I needed a landing page to introduce myself. Once that was done, I realized I wanted a **Now** page to share what I’m currently focused on. (For the uninitiated, [this blog post about Now pages](https://nownownow.com/about) explains the concept.) To create the Now page, I needed to reuse the header and footer from the landing page. That’s where the first feature of the build system came to life—a way to replicate shared components.
-
-Next, I wanted a place to write and share ideas, which led to the **Thoughts system**. Writing posts in markdown with features like frontmatter, slugs, and date-based sorting felt natural and lightweight. From there, I added **Projects**, showcasing work I’ve done and linking them to related thoughts.
-
-Each step added a layer of depth to the site, making it feel more interconnected. And while frameworks might have made some of these features easier, building them myself was incredibly satisfying.
+I started with a landing page. Then build injection to share components. Then a blog engine..on and on. Each step added a layer of depth to the site, making it feel more interconnected. And while frameworks might have made some of these features easier, building them myself was quite satisfying 😌
 
 ### The Build System
 
@@ -64,8 +52,7 @@ Each page has a clean, predictable layout:
 ```
 
 #### The Blog Engine
-
-One of the most enjoyable parts to build was the markdown-based blog engine. It’s simple, but it gets the job done and has room to grow. Features include:
+It’s simple, but it gets the job done and has room to grow. Features include:
 
 - Frontmatter for metadata
 - Automatic slug generation
@@ -103,15 +90,7 @@ For example, creating a new blog post is as simple as:
 ```bash
 deno task new-thought "My New Post Title"
 ```
-
-#### Deployment
-
-The site is hosted on GitHub Pages with a custom GitHub Action workflow that:
-
-1. Sets up Deno
-2. Runs the build process
-3. Deploys static files to GitHub Pages
-4. Configures the custom domain
+The site is hosted on GitHub Pages with a custom GitHub Action workflow .
 
 ### Browse and Explore
 

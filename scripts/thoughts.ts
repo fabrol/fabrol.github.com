@@ -133,7 +133,7 @@ export function generateThoughtPage(thought: Thought): string {
   const projectCardHtml = linkedProject
     ? `
     <div class="related-project">
-      <h3>Related Project</h3>
+      <h3>Relevant Project</h3>
       ${generateProjectCard(linkedProject)}
     </div>
   `

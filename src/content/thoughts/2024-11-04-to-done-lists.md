@@ -1,6 +1,6 @@
 ---
 title: "Reflecting on a Decade of To-Do Lists"
-date: '2024-12-20'
+date: '2024-11-05'
 draft: false
 slug: to-done-lists
 projectSlug: to-done-lists
