@@ -4,6 +4,7 @@ date: '2024-08-20'
 draft: false
 slug: tomatoes-and-animation
 projectSlug: tomatotimer
+tags: ['projects']
 socialLinks: {}
 ---
 

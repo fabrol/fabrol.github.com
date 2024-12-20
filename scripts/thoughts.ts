@@ -21,6 +21,7 @@ interface Thought {
     twitter?: string;
     bluesky?: string;
   };
+  tags?: string[];
 }
 
 function getPreview(content: string, length = 150): string {
@@ -47,6 +48,12 @@ function thoughtToHtml(thought: Thought): string {
     ? `<div class="thought-links">${socialLinks.join(" • ")}</div>`
     : "";
 
+  const tagsHtml = thought.tags?.length
+    ? `<div class="thought-tags">${thought.tags
+        .map((tag) => `<span class="tag">${tag}</span>`)
+        .join("")}</div>`
+    : "";
+
   const preview = getPreview(thought.content);
 
   return `
@@ -58,6 +65,7 @@ function thoughtToHtml(thought: Thought): string {
         <span class="thought-date">${thought.date.toLocaleDateString()}</span>
       </div>
       <div class="thought-preview">${preview}</div>
+      ${tagsHtml}
       ${socialLinksHtml}
     </div>
   `;
@@ -90,6 +98,7 @@ export async function getAllThoughts(): Promise<Thought[]> {
       draft: metadata.draft,
       projectSlug: metadata.projectSlug,
       socialLinks: metadata.socialLinks,
+      tags: metadata.tags || [],
     });
   }
 
@@ -126,6 +135,12 @@ export function generateThoughtPage(thought: Thought): string {
     ? `<div class="thought-links">${socialLinks.join(" • ")}</div>`
     : "";
 
+  const tagsHtml = thought.tags?.length
+    ? `<div class="thought-tags">${thought.tags
+        .map((tag) => `<span class="tag">${tag}</span>`)
+        .join("")}</div>`
+    : "";
+
   // Find linked project
   const linkedProject = thought.projectSlug
     ? projects.find((p) => p.slug === thought.projectSlug)
@@ -142,7 +157,10 @@ export function generateThoughtPage(thought: Thought): string {
   return `
     <div class="thought-single">
       <h1>${thought.title}</h1>
-      <div class="thought-date">${thought.date.toLocaleDateString()}</div>
+      <div class="thought-header">
+        <div class="thought-date">${thought.date.toLocaleDateString()}</div>
+        ${tagsHtml}
+      </div>
       <div class="thought-content">${thought.content}</div>
       ${socialLinksHtml}
       ${projectCardHtml}
