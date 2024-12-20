@@ -1,6 +1,8 @@
 import { walk } from "https://deno.land/std/fs/mod.ts";
 import { parse as parseYaml } from "https://deno.land/std/yaml/mod.ts";
 import { marked } from "npm:marked";
+import { projects } from "../src/data/projects.ts";
+import { generateProjectCard } from "./projects.ts";
 
 // Configure marked options
 marked.setOptions({
@@ -14,6 +16,7 @@ interface Thought {
   content: string;
   slug: string;
   draft: boolean;
+  projectSlug?: string;
   socialLinks?: {
     twitter?: string;
     bluesky?: string;
@@ -47,16 +50,14 @@ function thoughtToHtml(thought: Thought): string {
   const preview = getPreview(thought.content);
 
   return `
-    <div class="thought-entry">
+    <div class="thought-entry" onclick="window.location.href='/thoughts/${
+      thought.slug
+    }.html'" style="cursor: pointer;">
       <div class="thought-header">
-        <a href="/thoughts/${thought.slug}.html" class="thought-title">${
-    thought.title
-  }</a>
+        <span class="thought-title">${thought.title}</span>
         <span class="thought-date">${thought.date.toLocaleDateString()}</span>
       </div>
-      <a href="/thoughts/${
-        thought.slug
-      }.html" class="thought-preview">${preview}</a>
+      <div class="thought-preview">${preview}</div>
       ${socialLinksHtml}
     </div>
   `;
@@ -87,6 +88,7 @@ export async function getAllThoughts(): Promise<Thought[]> {
       content: htmlContent,
       slug: metadata.slug,
       draft: metadata.draft,
+      projectSlug: metadata.projectSlug,
       socialLinks: metadata.socialLinks,
     });
   }
@@ -124,12 +126,26 @@ export function generateThoughtPage(thought: Thought): string {
     ? `<div class="thought-links">${socialLinks.join(" • ")}</div>`
     : "";
 
+  // Find linked project
+  const linkedProject = thought.projectSlug
+    ? projects.find((p) => p.slug === thought.projectSlug)
+    : null;
+  const projectCardHtml = linkedProject
+    ? `
+    <div class="related-project">
+      <h3>Related Project</h3>
+      ${generateProjectCard(linkedProject)}
+    </div>
+  `
+    : "";
+
   return `
     <div class="thought-single">
       <h1>${thought.title}</h1>
       <div class="thought-date">${thought.date.toLocaleDateString()}</div>
       <div class="thought-content">${thought.content}</div>
       ${socialLinksHtml}
+      ${projectCardHtml}
       {{ email_signup }}
     </div>
   `;

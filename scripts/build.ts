@@ -116,6 +116,14 @@ function generateProjectCard(project: Project): string {
 async function buildProjects(nav: string, footer: string, head: string) {
   // Build projects list page
   const projectsHtml = projects.map(generateProjectCard).join("\n");
+  const projectsTemplate = await loadComponent("src/content/projects.html");
+  const finalProjectsHtml = projectsTemplate.replace(
+    "{{ projects }}",
+    projectsHtml
+  );
+
+  // Get all thoughts for project relationships
+  const thoughts = await getAllThoughts();
 
   // Ensure projects directory exists
   await ensureDir("dist/projects");
@@ -126,8 +134,34 @@ async function buildProjects(nav: string, footer: string, head: string) {
       const projectContent = await loadComponent(
         `src/content/projects/${project.slug}.html`
       );
+
+      // Find related thought
+      const relatedThought = thoughts.find(
+        (t) => t.projectSlug === project.slug
+      );
+      let finalContent = projectContent;
+
+      if (relatedThought) {
+        const thoughtHtml = `
+          <div class="related-thought">
+            <h3>Related Post</h3>
+            <div class="thought-single">
+              <h3>${relatedThought.title}</h3>
+              <div class="thought-date">${relatedThought.date.toLocaleDateString()}</div>
+              ${relatedThought.content}
+            </div>
+          </div>
+        `;
+        finalContent = projectContent.replace(
+          "{{ related_thought }}",
+          thoughtHtml
+        );
+      } else {
+        finalContent = projectContent.replace("{{ related_thought }}", "");
+      }
+
       await buildPage(
-        { content: projectContent },
+        { content: finalContent },
         `dist/projects/${project.slug}.html`,
         nav,
         footer,
@@ -139,7 +173,7 @@ async function buildProjects(nav: string, footer: string, head: string) {
     }
   }
 
-  return projectsHtml;
+  return finalProjectsHtml;
 }
 
 async function main() {
@@ -199,7 +233,7 @@ async function main() {
     footer,
     head,
     "Thoughts - Farhan Abrol",
-    true
+    false
   );
 
   // Copy CSS and images
