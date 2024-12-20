@@ -20,7 +20,8 @@ async function buildPage(
   nav: string,
   footer: string,
   head: string,
-  title: string
+  title: string,
+  startOpen = false
 ) {
   if (DEBUG) {
     console.log("\n=== Debug Info ===");
@@ -28,17 +29,20 @@ async function buildPage(
   }
 
   const layout = await loadComponent("src/templates/layout.html");
+  let emailSignup = await loadComponent("src/components/email-signup.html");
+  emailSignup = emailSignup
+    .replace("{{ start_open }}", startOpen ? "true" : "false")
+    .replace("{{ content_display }}", startOpen ? "inline-block" : "none")
+    .replace("{{ collapsed_display }}", startOpen ? "none" : "inline-block");
 
   // Handle either raw content or file path
-  const pageContent =
+  let pageContent =
     typeof pageContentPath === "string"
       ? await loadComponent(pageContentPath)
       : pageContentPath.content;
 
-  if (DEBUG) {
-    console.log("Layout template:", layout);
-    console.log("Page content:", pageContent);
-  }
+  // Replace email signup placeholder if it exists in the content
+  pageContent = pageContent.replace("{{ email_signup }}", emailSignup);
 
   let page = layout
     .replace("{{ nav }}", nav)
@@ -142,6 +146,7 @@ async function main() {
   const nav = await loadComponent("src/components/nav.html");
   const footer = await loadComponent("src/components/footer.html");
   const head = await loadComponent("src/components/head.html");
+  const emailSignup = await loadComponent("src/components/email-signup.html");
 
   // Build individual thought pages
   const thoughts = await getAllThoughts();
@@ -155,7 +160,8 @@ async function main() {
       nav,
       footer,
       head,
-      `${thought.title} - Farhan Abrol`
+      `${thought.title} - Farhan Abrol`,
+      true
     );
   }
 
@@ -192,7 +198,8 @@ async function main() {
     nav,
     footer,
     head,
-    "Thoughts - Farhan Abrol"
+    "Thoughts - Farhan Abrol",
+    true
   );
 
   // Copy CSS and images

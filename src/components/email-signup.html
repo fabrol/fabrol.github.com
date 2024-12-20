@@ -1,0 +1,32 @@
+<div class="email-signup" id="email-signup" data-start-open="{{ start_open }}">
+  <div class="email-signup-content" style="display: {{ content_display }}">
+    <div class="signup-header">
+      <span class="signup-text">
+        Once a month, I share thoughts on tech, society, and what I'm building.
+      </span>
+      <button class="close-signup" onclick="toggleSignup()">(hide)</button>
+    </div>
+    <form id="signup-form" onsubmit="handleSubmit(event)" autocomplete="on">
+      <input
+        type="email"
+        name="EMAIL"
+        data-name="fields[email]"
+        placeholder="your@email.com"
+        autocomplete="email"
+        required
+      />
+      <button type="submit">→</button>
+    </form>
+    <div
+      id="signup-message"
+      style="display: none; font-size: 0.8rem; margin-top: 0.5rem"
+    ></div>
+  </div>
+  <div
+    class="signup-collapsed"
+    onclick="toggleSignup()"
+    style="display: {{ collapsed_display }}"
+  >
+    wanna hear from me?
+  </div>
+</div>

@@ -99,6 +99,7 @@ export async function generateThoughtsHtml(): Promise<string> {
 
   return `
     <div class="thoughts">
+      {{ email_signup }}
       <div class="thoughts-list">
         ${thoughtsHtml}
       </div>
@@ -129,6 +130,7 @@ export function generateThoughtPage(thought: Thought): string {
       <div class="thought-date">${thought.date.toLocaleDateString()}</div>
       <div class="thought-content">${thought.content}</div>
       ${socialLinksHtml}
+      {{ email_signup }}
     </div>
   `;
 }

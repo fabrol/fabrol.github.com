@@ -53,5 +53,57 @@
         updateCarousel();
       });
     }
+
+    // Email signup toggle
+    window.toggleSignup = function () {
+      const signup = document.getElementById("email-signup");
+      const content = signup.querySelector(".email-signup-content");
+      const collapsed = signup.querySelector(".signup-collapsed");
+
+      if (content.style.display === "none") {
+        content.style.display = "inline-block";
+        collapsed.style.display = "none";
+      } else {
+        content.style.display = "none";
+        collapsed.style.display = "inline-block";
+      }
+    };
+
+    // Email signup handler
+    window.handleSubmit = async function (event) {
+      event.preventDefault();
+      const form = event.target;
+      const emailInput = form.querySelector('input[name="EMAIL"]');
+      const email = emailInput.value;
+      const message = document.getElementById("signup-message");
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      submitButton.disabled = true;
+      message.style.display = "block";
+      message.style.color = "var(--text-secondary)";
+      message.textContent = "Subscribing...";
+
+      try {
+        const response = await fetch(
+          "https://assets.mailerlite.com/jsonp/1241661/forms/141203369577416174/subscribe",
+          {
+            method: "POST",
+            body: new URLSearchParams({
+              "fields[email]": email,
+              "ml-submit": "1",
+              anticsrf: "true",
+            }),
+          }
+        );
+
+        message.style.color = "var(--text-secondary)";
+        message.textContent = "✓ Check your email to confirm";
+        form.style.display = "none";
+      } catch (error) {
+        message.style.color = "red";
+        message.textContent = "Something went wrong. Please try again.";
+        submitButton.disabled = false;
+      }
+    };
   });
 </script>
