@@ -6,6 +6,7 @@ export interface Project {
   github?: string;
   technologies?: string[];
   featured?: boolean;
+  preview?: string;
 }
 
 export const projects: Project[] = [
@@ -30,13 +31,14 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "What did I do?",
+    title: "To Done Lists",
     description:
       "A visualization tool for Microsoft To-Do completed tasks, helping users reflect on their productivity patterns over time.",
-    slug: "what-did-i-do",
+    slug: "to-done-lists",
     url: "https://msft-todo-completed.vercel.app/",
     github: "https://github.com/fabrol/msft-todo-completed",
     technologies: ["Next.js", "TypeScript", "Microsoft Graph API"],
     featured: true,
+    preview: "/assets/images/gif_task_viewer.gif",
   },
 ];

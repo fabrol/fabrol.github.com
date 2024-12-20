@@ -90,6 +90,15 @@ function generateProjectCard(project: Project): string {
     <div class="project-card" onclick="window.location='/projects/${
       project.slug
     }.html'">
+      ${
+        project.preview
+          ? `
+        <div class="project-preview">
+          <img src="${project.preview}" alt="${project.title} Preview" />
+        </div>
+      `
+          : ""
+      }
       <h3>${project.title}</h3>
       <p>${project.description}</p>
       <div class="project-meta">
