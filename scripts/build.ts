@@ -30,6 +30,7 @@ async function buildPage(
 
   const layout = await loadComponent("src/templates/layout.html");
   let emailSignup = await loadComponent("src/components/email-signup.html");
+  startOpen = true;
   emailSignup = emailSignup
     .replace("{{ start_open }}", startOpen ? "true" : "false")
     .replace("{{ content_display }}", startOpen ? "inline-block" : "none")
