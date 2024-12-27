@@ -110,10 +110,10 @@ export async function generateThoughtsHtml(): Promise<string> {
 
   return `
     <div class="thoughts">
-      {{ email_signup }}
       <div class="thoughts-list">
         ${thoughtsHtml}
       </div>
+      {{ email_signup }}
     </div>
   `;
 }
