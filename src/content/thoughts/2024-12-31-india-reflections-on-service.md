@@ -4,6 +4,7 @@ date: '2024-12-31'
 draft: false
 slug: india-reflections-on-service
 socialLinks: {}
+tags: ['exploration', 'service', 'analysis']
 ---
 
 Given my upbringing in India, I've always felt a pull to serve the subcontinent, with large sectors of people with more unmet essential needs as compared to the US.
