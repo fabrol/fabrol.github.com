@@ -33,6 +33,14 @@
       }
     });
 
+    // Initialize tooltips
+    tippy(".tooltip", {
+      theme: "light",
+      allowHTML: true,
+      interactive: true,
+      placement: "bottom",
+    });
+
     const carousel = document.querySelector(".carousel");
     if (carousel) {
       const inner = carousel.querySelector(".carousel-inner");
