@@ -1,7 +1,7 @@
 ---
 title: "India: Pathways to service"
 date: '2024-12-31'
-draft: false
+draft: true
 slug: india-reflections-on-service
 socialLinks: {}
 tags: ['exploration', 'service', 'analysis']
@@ -10,7 +10,7 @@ tags: ['exploration', 'service', 'analysis']
 Given my upbringing in India, I've always felt a pull to serve the subcontinent, with large sectors of people with more unmet essential needs as compared to the US.
 Over the last few months, I visited India and through conversations with folks running startups, NGOs, and enterprises across industries like healthcare, financial services, education, and technology, I sought to uncover patterns, challenges, and opportunities to reduce helplessness and increase access to essential services.
 
-This is not a comprehensive analysis of the country, if that is even possible, and intentionally makes broader-than-verifiable generalizations in order to make analysis tractable. It helped me structure my thinking and hopefully can do the same for you.
+This reflection piece aims to segment the Indian market and identify potential opportunities for impact based on my recent experiences and conversations. While not a comprehensive analysis, it provides a framework to make the analysis more tractable through some broader generalizations.
 
 ### The three worlds within.
 **The Urban Affluent (Top 50 Million)**
@@ -27,8 +27,6 @@ This segment, heavily dependent on government support for basic needs, represent
 The most compelling theme across my conversations was the critical need for financial stability. While UPI has democratized payments, significant gaps remain in access to affordable credit, insurance penetration, and tools for building long-term financial security.
 
 In employment and skill development, two distinct pathways emerged. The first connects Indian talent to global opportunities, particularly in sectors with persistent demand-supply gaps like healthcare. The second focuses on local market development through structured vocational training and certification systems that build trust and credibility.
-
-India's success with public digital infrastructure creates unique opportunities for open commerce platforms, healthcare digitization, and AI-enabled tools for small business growth. Yet every conversation reminded me that technology alone isn't the answer - trust, human connection, and local context remain essential.
 
 ### Personal Reflections
 - The highest leveraged way to improve lives remains government programs.
